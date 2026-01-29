@@ -187,7 +187,7 @@ function History({ onSelectDataset }) {
           cursor: 'pointer'
         }}
       >
-        🔄 Refresh History
+         Refresh History
       </button>
     </div>
   );
