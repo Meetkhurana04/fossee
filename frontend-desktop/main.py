@@ -323,7 +323,7 @@ class UploadTab(QWidget):
         file_name = os.path.basename(file_path)
         file_size = os.path.getsize(file_path) / 1024  # KB
         
-        self.file_info_label.setText(f"📄 {file_name} ({file_size:.1f} KB)")
+        self.file_info_label.setText(f" {file_name} ({file_size:.1f} KB)")
         self.file_info_label.show()
         self.upload_btn.setEnabled(True)
     
@@ -386,7 +386,7 @@ class SummaryTab(QWidget):
         layout.setContentsMargins(20, 20, 20, 20)
         
         # Title
-        self.title = QLabel("📊 Dataset Summary")
+        self.title = QLabel(" Dataset Summary")
         self.title.setFont(QFont("Arial", 18, QFont.Bold))
         layout.addWidget(self.title)
         
@@ -407,7 +407,7 @@ class SummaryTab(QWidget):
         layout.addSpacing(20)
         
         # Statistics table
-        stats_group = QGroupBox("📈 Parameter Statistics")
+        stats_group = QGroupBox(" Parameter Statistics")
         stats_layout = QVBoxLayout(stats_group)
         
         self.stats_table = QTableWidget()
@@ -423,7 +423,7 @@ class SummaryTab(QWidget):
         layout.addWidget(stats_group)
         
         # Type distribution
-        type_group = QGroupBox("🏭 Equipment Type Distribution")
+        type_group = QGroupBox(" Equipment Type Distribution")
         self.type_layout = QHBoxLayout(type_group)
         layout.addWidget(type_group)
         
@@ -435,7 +435,7 @@ class SummaryTab(QWidget):
         summary = dataset.get('summary_parsed', {})
         
         # Update title
-        self.title.setText(f"📊 Dataset Summary: {dataset.get('name', 'Unknown')}")
+        self.title.setText(f" Dataset Summary: {dataset.get('name', 'Unknown')}")
         
         # Update cards
         self.count_card.update_value(str(summary.get('total_count', 0)))
@@ -507,7 +507,7 @@ class DataTableTab(QWidget):
         header_layout.addStretch()
         
         self.search_input = QLineEdit()
-        self.search_input.setPlaceholderText("🔍 Search by name or type...")
+        self.search_input.setPlaceholderText(" Search by name or type...")
         self.search_input.setMinimumWidth(300)
         self.search_input.setStyleSheet("""
             QLineEdit {
@@ -779,7 +779,7 @@ class HistoryTab(QWidget):
             datasets = self.api_client.get_history()
             
             if not datasets:
-                no_data = QLabel("📭 No datasets uploaded yet.\nUpload a CSV file to get started!")
+                no_data = QLabel("No datasets uploaded yet.\nUpload a CSV file to get started!")
                 no_data.setAlignment(Qt.AlignCenter)
                 no_data.setStyleSheet("color: #666; font-size: 14px;")
                 self.history_list.addWidget(no_data)
@@ -815,7 +815,7 @@ class HistoryTab(QWidget):
         # Info section
         info_layout = QVBoxLayout()
         
-        name_label = QLabel(f"📄 {dataset.get('name', 'Unknown')}")
+        name_label = QLabel(f" {dataset.get('name', 'Unknown')}")
         name_label.setFont(QFont("Arial", 12, QFont.Bold))
         info_layout.addWidget(name_label)
         
@@ -842,7 +842,7 @@ class HistoryTab(QWidget):
             layout.addWidget(types_label)
         
         # View button
-        view_btn = QPushButton("👁️ View")
+        view_btn = QPushButton(" View")
         view_btn.setStyleSheet("""
             QPushButton {
                 background-color: #9b59b6;
@@ -883,14 +883,14 @@ class LoginDialog(QDialog):
         self.setup_ui()
     
     def setup_ui(self):
-        self.setWindowTitle("🔐 Login")
+        self.setWindowTitle(" Login")
         self.setFixedSize(400, 350)
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(30, 30, 30, 30)
         
         # Title
-        title = QLabel("🔐 Login to Continue")
+        title = QLabel(" Login  to Continue")
         title.setFont(QFont("Arial", 16, QFont.Bold))
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
@@ -1061,11 +1061,11 @@ class MainWindow(QMainWindow):
         self.history_tab.dataset_selected.connect(self.on_dataset_selected)
         
         # Add tabs
-        self.tabs.addTab(self.upload_tab, "📤 Upload")
-        self.tabs.addTab(self.summary_tab, "📊 Summary")
-        self.tabs.addTab(self.table_tab, "📋 Data Table")
-        self.tabs.addTab(self.charts_tab, "📈 Charts")
-        self.tabs.addTab(self.history_tab, "🕐 History")
+        self.tabs.addTab(self.upload_tab, " Upload")
+        self.tabs.addTab(self.summary_tab, " Summary")
+        self.tabs.addTab(self.table_tab, " Data Table")
+        self.tabs.addTab(self.charts_tab, " Charts")
+        self.tabs.addTab(self.history_tab, " History")
         
         main_layout.addWidget(self.tabs)
         

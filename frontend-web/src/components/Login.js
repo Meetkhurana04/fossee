@@ -103,7 +103,7 @@ function Login({ onLoginSuccess }) {
 
   return (
     <div className="login-container">
-      <h2>{mode === 'login' ? '🔐 Login' : '📝 Register'}</h2>
+      <h2>{mode === 'login' ? ' Login' : ' Register'}</h2>
       
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="form-group">
